@@ -6,8 +6,9 @@ from google.oauth2 import service_account
 def auth_gee():
     """Authenticate Google Earth Engine"""
     try:
-        credentials = service_account.Credentials.from_service_account_info(
-            st.secrets["gee_service_account"],
+        credentials = ee.ServiceAccountCredentials(
+            st.secrets["gee_service_account"]["client_email"],
+            st.secrets["gee_service_account"]["private_key"],
             scopes=["https://www.googleapis.com/auth/earthengine"]
         )
         ee.Initialize(credentials)
