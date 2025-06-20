@@ -21,10 +21,11 @@ if not auth_gee():
 
 st.markdown("""
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
-    /* Ensure Material Icons are properly loaded */
-    .material-icons {
-        font-family: 'Material Icons';
+    /* Enhanced Material Icons loading */
+    .material-icons, .material-symbols-outlined {
+        font-family: 'Material Icons', 'Material Symbols Outlined';
         font-weight: normal;
         font-style: normal;
         font-size: 24px;
@@ -37,6 +38,21 @@ st.markdown("""
         direction: ltr;
         -webkit-font-feature-settings: 'liga';
         -webkit-font-smoothing: antialiased;
+        vertical-align: middle;
+    }
+    
+    /* Hide the problematic arrow text and replace with CSS arrow */
+    div[data-testid="stSidebar"] span:contains("keyboard_double_arrow_right") {
+        display: none !important;
+    }
+    
+    /* Add custom arrow using CSS */
+    .stSidebar .css-1d391kg::after {
+        content: "»";
+        font-size: 18px;
+        color: #A9A9A9;
+        float: right;
+        margin-top: 2px;
     }
 </style>
 """, unsafe_allow_html=True)
