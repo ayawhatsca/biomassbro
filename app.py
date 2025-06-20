@@ -64,7 +64,7 @@ with st.sidebar:
     st.markdown("---")
     tabs = on_hover_tabs(
         tabName=['Home', 'Map'],
-        iconName=['home', 'public'],
+        iconName=['home', 'map'],
         styles={
             'navtab': {
                 'background-color': '#2d2d2d',
