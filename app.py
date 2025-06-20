@@ -15,33 +15,36 @@ st.set_page_config(
     page_icon="assets/icon.svg", 
     layout="wide")
 
+st.markdown("""
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Replace keyboard_double_arrow_right text with actual arrow
+    const replaceArrowText = () => {
+        const elements = document.querySelectorAll('*');
+        elements.forEach(el => {
+            if (el.textContent === 'keyboard_double_arrow_right') {
+                el.textContent = '»';
+                el.style.fontSize = '18px';
+                el.style.color = '#A9A9A9';
+            }
+        });
+    };
+    
+    // Run replacement multiple times to catch dynamically loaded content
+    replaceArrowText();
+    setTimeout(replaceArrowText, 500);
+    setTimeout(replaceArrowText, 1000);
+    
+    // Observer for dynamic content changes
+    const observer = new MutationObserver(replaceArrowText);
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+""", unsafe_allow_html=True)
+
 if not auth_gee():
         st.error(" Google Earth Engine authentication failed!")
         st.stop()
-
-st.markdown("""
-<style>
-/* Hide the keyboard_double_arrow_right text */
-.stSidebar [data-baseweb="tab-list"] span:contains("keyboard_double_arrow_right") {
-    display: none !important;
-}
-
-/* Replace with a proper arrow using CSS pseudo-element */
-.stSidebar .css-1d391kg {
-    position: relative;
-}
-
-.stSidebar .css-1d391kg::before {
-    content: "→";
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: #A9A9A9;
-}
-</style>
-""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
