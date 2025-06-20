@@ -20,40 +20,26 @@ if not auth_gee():
         st.stop()
 
 st.markdown("""
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
-    /* Enhanced Material Icons loading */
-    .material-icons, .material-symbols-outlined {
-        font-family: 'Material Icons', 'Material Symbols Outlined';
-        font-weight: normal;
-        font-style: normal;
-        font-size: 24px;
-        line-height: 1;
-        letter-spacing: normal;
-        text-transform: none;
-        display: inline-block;
-        white-space: nowrap;
-        word-wrap: normal;
-        direction: ltr;
-        -webkit-font-feature-settings: 'liga';
-        -webkit-font-smoothing: antialiased;
-        vertical-align: middle;
-    }
-    
-    /* Hide the problematic arrow text and replace with CSS arrow */
-    div[data-testid="stSidebar"] span:contains("keyboard_double_arrow_right") {
-        display: none !important;
-    }
-    
-    /* Add custom arrow using CSS */
-    .stSidebar .css-1d391kg::after {
-        content: "»";
-        font-size: 18px;
-        color: #A9A9A9;
-        float: right;
-        margin-top: 2px;
-    }
+/* Hide the keyboard_double_arrow_right text */
+.stSidebar [data-baseweb="tab-list"] span:contains("keyboard_double_arrow_right") {
+    display: none !important;
+}
+
+/* Replace with a proper arrow using CSS pseudo-element */
+.stSidebar .css-1d391kg {
+    position: relative;
+}
+
+.stSidebar .css-1d391kg::before {
+    content: "→";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #A9A9A9;
+}
 </style>
 """, unsafe_allow_html=True)
 
