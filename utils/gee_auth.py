@@ -1,14 +1,15 @@
 import ee
 import streamlit as st
+from google.oauth2 import service_account
 
 @st.cache_data
 def auth_gee():
-    """Authenticate Google Earth Engine"""
+    """Authenticate Google Earth Engine using service account"""
     try:
-        credentials = ee.ServiceAccountCredentials(
-            st.secrets["gee_service_account"]["client_email"],
-            st.secrets["gee_service_account"]["private_key"]
-        )  # Added missing closing parenthesis
+        # Use google.oauth2.service_account instead of ee.ServiceAccountCredentials
+        credentials = service_account.Credentials.from_service_account_info(
+            st.secrets["gee_service_account"]
+        )
         ee.Initialize(credentials)
         return True
     except Exception as e:
