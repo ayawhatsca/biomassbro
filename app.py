@@ -7,7 +7,8 @@ import plotly.express as px
 from page import map
 from utils.gee_auth import auth_gee
 from st_on_hover_tabs import on_hover_tabs
-from page import home, map  # Import fungsi dari pages
+from page import home as home_page
+from page import map as map_page  # Import fungsi dari pages
 
 st.set_page_config(
     page_title="Aboveground Biomass Monitoring",
@@ -117,6 +118,6 @@ with st.sidebar:
 
 # Konten utama
 if tabs == "Home":
-    home.show_home()
+    home_page.show_home()
 elif tabs == "Map":
-    map.show_map(selected_year, selected_palette)
+    map_page.show_map(selected_year, selected_palette)
