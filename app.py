@@ -15,33 +15,6 @@ st.set_page_config(
     page_icon="assets/icon.svg", 
     layout="wide")
 
-st.markdown("""
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Replace keyboard_double_arrow_right text with actual arrow
-    const replaceArrowText = () => {
-        const elements = document.querySelectorAll('*');
-        elements.forEach(el => {
-            if (el.textContent === 'keyboard_double_arrow_right') {
-                el.textContent = '»';
-                el.style.fontSize = '18px';
-                el.style.color = '#A9A9A9';
-            }
-        });
-    };
-    
-    // Run replacement multiple times to catch dynamically loaded content
-    replaceArrowText();
-    setTimeout(replaceArrowText, 500);
-    setTimeout(replaceArrowText, 1000);
-    
-    // Observer for dynamic content changes
-    const observer = new MutationObserver(replaceArrowText);
-    observer.observe(document.body, { childList: true, subtree: true });
-});
-</script>
-""", unsafe_allow_html=True)
-
 if not auth_gee():
         st.error(" Google Earth Engine authentication failed!")
         st.stop()
