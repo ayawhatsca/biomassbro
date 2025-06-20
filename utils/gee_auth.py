@@ -14,10 +14,5 @@ def auth_gee():
         ee.Initialize(credentials)
         return True
     except Exception as e:
-        try:
-            # Fallback to default authentication
-            ee.Initialize()
-            return True
-        except Exception as e2:
-            st.error(f"GEE Authentication Error: {str(e2)}")
-            return False
+        st.error(f"GEE Authentication Error: {str(e)}")
+        return False
