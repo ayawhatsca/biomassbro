@@ -50,7 +50,7 @@ def show_home():
         
         # Sample metrics (replace with real data)
         metrics = [
-            ("Area Coverage", "400,000+ Ha", "#ffffff"),
+            ("Area Coverage", "400,000+ ha", "#ffffff"),
             # ("Data Points", "10,000+", "#ffffff"),
             ("Model Accuracy", "80%+", "#ffffff"),
             ("Year Analyzed", "2021-2023", "#ffffff")
@@ -167,8 +167,8 @@ def show_home():
     Map.split_map(left_layer, right_layer)
     
     # Tambahkan legenda
-    Map.add_colorbar(vis_params_agb_2021, label='AGB 2021 (Ton/Ha)', position='top-left')
-    Map.add_colorbar(vis_params_agb_trend, label='Trend AGB (Ton/Ha/year)', position='top-right')
+    Map.add_colorbar(vis_params_agb_2021, label='AGB 2021 (ton/ha)', position='top-left')
+    Map.add_colorbar(vis_params_agb_trend, label='Trend AGB 2021-2023 (ton/ha/year)', position='top-right')
 
     # Buat 3 kolom: kiri, tengah, kanan
     col1, col2, col3 = st.columns([1, 3, 1])
