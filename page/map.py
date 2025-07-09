@@ -165,7 +165,7 @@ def show_map(year, color_palette):
                 fig1 = px.line(
                     AGBP_per_year.sort_values('year'),
                     x='year', y='total_agb', markers=True,
-                    labels={'total_agb': 'AGB (Ton)', 'year': 'Year'},
+                    labels={'total_agb': 'AGB (ton)', 'year': 'Year'},
                     title=' '
                 )
                 fig1.update_traces(line=dict(color='#9ACD32', width=3), marker=dict(size=8))
@@ -201,7 +201,7 @@ def show_map(year, color_palette):
                 fig2 = px.line(
                     RMSE_per_year.sort_values('year'),
                     x='year', y='rmse', markers=True,
-                    labels={'rmse': 'RMSE (Ton/Ha)', 'year': 'Year'},
+                    labels={'rmse': 'RMSE (ton/Ha)', 'year': 'Year'},
                     title=' '
                 )
                 fig2.update_traces(line=dict(color='#9ACD32', width=3), marker=dict(size=8))
@@ -353,7 +353,7 @@ def display_map(year, palette):
         
         Map = geemap.Map(center=[center_lat, center_lon], zoom=10)
         Map.addLayer(agb_layer, vis_params, f'AGB {year}')
-        Map.add_colorbar(vis_params, label="AGB (Ton/Ha)")
+        Map.add_colorbar(vis_params, label="AGB (ton/Ha)")
         Map.to_streamlit(height=750)
         
     except Exception as e:
@@ -381,7 +381,7 @@ def display_stats(year):
         ).getInfo()
         
         st.metric(label=f"Average AGB {year}", 
-                  value=f"{stats.get('agbd_mean', 0):.1f} Ton/ha",
+                  value=f"{stats.get('agbd_mean', 0):.1f} ton/ha",
                   help="Average aboveground biomass value per hectare (Density)")
         
     except Exception as e:
