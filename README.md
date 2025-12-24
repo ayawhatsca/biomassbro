@@ -18,9 +18,9 @@
 ## Tech Stack
 * **Frontend:** [Streamlit](https://streamlit.io/)
 * **Geospatial Processing:** [Google Earth Engine (GEE)](https://earthengine.google.com/)
-* **Mapping Library:** [geemap](https://geemap.org/)
+* **Mapping Library:** geemap
 * **Data Visualization:** Plotly, Altair, and Pandas
-* **Language:** Python 3.9+
+* **Language:** JavaScript on GEE and Python 3.9+
 
 ---
 
@@ -30,7 +30,7 @@
 * **Python 3.9+** installed on your system.
 * **Google Earth Engine Account:** You must have a registered GEE account. [Sign up here](https://earthengine.google.com/signup/).
 * **Cloud Project:** A valid Google Cloud Project ID with the Earth Engine API enabled.
-* You can check the code for GEE from the **biomassbro/GEE** folder, I separate it into 3 parts (minimum errors and execution time).
+* You can check the code for GEE from [biomassbro/GEE](https://https://github.com/ayawhatsca/biomassbro/GEE), I separate it into 3 parts (minimum errors and execution time).
 
 ### 2. Installation Steps
 Clone the repository:
